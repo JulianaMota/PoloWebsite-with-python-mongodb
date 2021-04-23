@@ -1,0 +1,225 @@
+body {
+    background-image: url(./images/wallpaper2.png);
+    height: 90vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Montserrat;
+    margin: 0;
+}
+
+img{
+    width: 200px;
+}
+
+header{
+    background-color: #264653;
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+header img{
+    width: 50px;
+    margin-right: 20px;
+}
+header nav{
+    display: flex;
+    width: 20%;
+    align-items:center;
+    justify-content: space-between;
+}
+header div{
+    display: flex;
+}
+header nav a{
+    color: #fff;
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+    margin: 40px 0;
+    font-size: 30px;
+    color: #264653;
+}
+h2 {
+    font-size: 20px;
+}
+main{
+    margin: 0 20%;
+}
+main img{
+    width: 500px;
+    display: block;
+    margin: auto;
+}
+main p{
+    line-height: 25px;
+}
+.players tr {
+    background-color: #2a9d8f;
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    row-gap: 10px;
+
+}
+.players tr td {
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+.players {
+    border-spacing: 0;
+    width: 100%;    
+}
+.players tbody {
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 0 10% 10%;
+}
+
+.players tr td img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+.players tr td span{
+    font-weight: 100;
+}
+
+.form-menu{
+    margin: 0 10%;
+
+}
+input[type=submit]{
+    border: none;
+    background-color: #e9c46a;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #264653;
+    font-size: 13px;
+    margin-right: 10px;
+    cursor: pointer;
+    outline: none;
+}
+input[type=submit]:hover{
+    background-color: #f4a261;
+}
+
+.form-crud {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form-crud .modal{
+    background-color: #2a9d8f;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+.form-crud .modal h3{
+    margin: 0 0 20px;
+    color: #e9c46a;
+}
+.form-crud .modal section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 30px;
+}
+.form-crud .modal section div{
+    display: flex;
+}
+input[type=text] {
+    width: 100%;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-radius: 0 0 0 10px;
+    outline: none;
+    padding: 0 10px 0 10px;
+    font-size: 16px;
+}
+label{
+    margin-right: 10px;
+    color: #fff;
+}
+
+.errorM{
+    color: #e76f51;
+    margin: 3% 10%;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.teams {
+    border-spacing: 0;
+    width: 100%;
+}
+
+.teams tbody {
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    margin: 0 10% 10%;
+}
+.teams tbody tr {
+    background-color: #2a9d8f;
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    row-gap: 10px;
+}
+.teams tbody td {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 100;
+}
+.teams tbody .tName {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.teams tbody td span {
+    font-size: 16px;
+    font-weight: 600;
+}
+.teams tbody td ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    box-sizing: border-box;
+    padding: 0;
+    gap: 20px;
+}
+.teams tbody td ul img{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    object-position: top;
+
+}
+.teams tbody td ul li{
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+}

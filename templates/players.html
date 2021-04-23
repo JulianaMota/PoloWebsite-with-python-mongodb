@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../static/Stylesheet.css">
+    <title>players</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="../static/images/logo.svg" alt="logo" />
+            <h2>Polo Game</h2>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="players">Players</a>
+            <a href="teams">Teams</a>
+        </nav>
+    </header>
+    <h1>Players</h1>
+    <form method="post" action="/players" class="form-menu">
+        <input name="myform" value="Add New Player" type="submit" />
+        <input name="myform" value="Update Player" type="submit" />
+        <input name="myform" value="Delete Player" type="submit" />
+    </form>
+    <p class="errorM">{{ message }}</p>
+    <table class="players">
+        <tbody>
+            {% for row in values %}
+            <tr>
+                <td><img src="{{ path }}/{{ row["picture"] }}.jpg" alt="player picture" /></td>
+                <td><span>Id:</span> {{ row["_id"] }}</td>
+                <td><span>Name:</span> {{ row["name"] }}</td>
+                <td><span>Player Number:</span> {{ row["number"] }}</td>
+                <td><span>Age:</span> {{ row["age"] }}</td>
+                <td><span>Manager:</span> {{ row["manager"] }}</td>
+                <td><span>Horse Name:</span> {{ row["horse-name"] }}</td>
+                <td><img src="{{ path }}/{{ row["horse-picture"] }}.jpg" alt="horse picture" /></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if form == true %}
+    <form method="post" action="/players" class="form-crud">
+        <div class="modal">
+            <h3>{{ formTitle }}</h3>
+            <section>
+                <div>
+                    <label for="_id">Id</label>
+                    <input name="_id" type="text" width="20" />
+                </div>
+
+                {% if add == true or update == true %}
+                <div>
+                    <label for="name">Name</label>
+                    <input name="name" type="text" />
+                </div>
+                <div>
+                    <label for="picture">Picture</label>
+                    <input name="picture" type="text" />
+                </div>
+                <div>
+                    <label for="number">Number</label>
+                    <input name="number" type="text" width="20" />
+                </div>
+                <div>
+                    <label for="age">Age</label>
+                    <input name="age" type="text" width="20" />
+                </div>
+                <div>
+                    <label for="horse-name">Horse Name</label>
+                    <input name="horse-name" type="text" />
+                </div>
+                <div>
+                    <label for="horse-pic">Horse Picture</label>
+                    <input name="horse-pic" type="text" />
+                </div>
+                <div>
+                    <label for="manager">Manager</label>
+                    <input name="manager" type="text" />
+                </div>
+            </section>
+            {% if add == true %}
+            <input name="myform" value="Add" type="submit" />
+            {% elif update == true %}
+            <input name="myform" value="Update" type="submit" />
+            {% endif %}
+            {% else %}
+            </section>
+            <input name="myform" value="Delete" type="submit" />
+            {% endif %}
+            <input name="myform" value="Cancel" type="submit" />
+
+        </div>
+    </form>
+    {%- endif %}
+
+</body>
+</html>

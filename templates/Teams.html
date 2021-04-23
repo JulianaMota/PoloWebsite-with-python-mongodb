@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../static/Stylesheet.css">
+    <title>teams</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="../static/images/logo.svg" alt="logo" />
+            <h2>Polo Game</h2>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="players">Players</a>
+            <a href="teams">Teams</a>
+        </nav>
+    </header>
+    <h1>Teams</h1>
+    <form method="post" action="/teams" class="form-menu">
+        <input name="myform" value="Add New Team" type="submit" />
+        <input name="myform" value="Update Team Members" type="submit" />
+        <input name="myform" value="Delete Team" type="submit" />
+    </form>
+    <p class="errorM">{{ message }}</p>
+    <table class="teams">
+        <tbody>
+            {% for row in values %}
+            <tr>
+                <td class="tName"><span>TEAM </span>{{ row["name"] }}</td>
+                <td><span>Id: </span>{{ row["id"] }}</td>
+                <td><span>Year: </span>{{ row["year"] }}</td>
+                <td>
+                    <ul>
+                        {% for p in row["team"] %}
+                        <li>
+                            
+                            <img src="{{ path }}/{{ p["picture"] }}.jpg" alt="player picture" />
+                            <p><span>Name: </span>{{ p["name"] }}</p>
+                            <p><span>Player Number: </span>{{ p["number"]}}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% if form == true %}
+    <form method="post" action="/teams" class="form-crud">
+        <div class="modal">
+            <h3>{{ formTitle }}</h3>
+            <section>
+                <div>
+                    <label for="_id">Id</label>
+                    <input name="_id" type="text" />
+                </div>
+
+                {% if add == true or update == true %}
+                <div>
+                    <label for="team">Team Member(s) id - add comma for separating ids </label>
+                    <input name="team" type="text" />
+                </div>
+                {% if add == true %}
+                <div>
+                    <label for="name">Name</label>
+                    <input name="name" type="text" />
+                </div>
+                <div>
+                    <label for="year">Year</label>
+                    <input name="year" type="text" />
+                </div>
+            </section>
+            <input name="myform" value="Add" type="submit" />
+            {% elif update == true %}
+            </section>
+            <input name="myform" value="Update" type="submit" />
+            {% endif %}
+            {% else %}
+            </section>
+            <input name="myform" value="Delete" type="submit" />
+            {% endif %}
+            <input name="myform" value="Cancel" type="submit" />
+        </div>
+    </form>
+    {%- endif %}
+
+</body>
+</html>
